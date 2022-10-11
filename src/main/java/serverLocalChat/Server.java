@@ -42,9 +42,9 @@ public class Server {
 
     public static void main(String[] args) throws Exception {
 
-        final RemoteServerImpl service = new RemoteServerImpl();  //создание объекта для удаленного доступа
+        RemoteServerImpl service = new RemoteServerImpl();  //создание объекта для удаленного доступа
         //создание реестра расшареных объектов
-        final Registry registry = LocateRegistry.createRegistry(4344);
+        Registry registry = LocateRegistry.getRegistry(4344);
         //создание "заглушки" – приемника удаленных вызовов
         Remote stub = UnicastRemoteObject.exportObject(service, 0);
         //регистрация "заглушки" в реесте
